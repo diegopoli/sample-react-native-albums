@@ -1,8 +1,8 @@
 # React Native Albums Sample
-This sample illustrates the use of React Native to build mobile apps with React.
+This sample illustrates the use of [React Native](https://facebook.github.io/react-native/) to build mobile apps with React.
 
 ## Introduction
-This sample shows the use of React Native to build a plain-vanilla list of albums of a given singer.
+This sample shows the use of [React Native](https://facebook.github.io/react-native/) to build a plain-vanilla list of albums of a given singer.
 
 ## Pre-requisites
 
@@ -12,7 +12,7 @@ This sample shows the use of React Native to build a plain-vanilla list of album
 
 
 ## Authors
-* **Diego Poli**(https://www.linkedin.com/in/diegopoli)
+* [**Diego Poli**](https://www.linkedin.com/in/diegopoli)
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
