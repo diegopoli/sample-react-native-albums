@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-const AlbumSection = (props) => {
+const CardSection = (props) => {
   return (
     <View style={styles.containerStyle}>
       {props.children}
@@ -21,4 +21,4 @@ const styles = {
   }
 };
 
-export { AlbumSection };
+export { CardSection };
