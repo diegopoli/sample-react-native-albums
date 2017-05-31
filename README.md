@@ -1,5 +1,5 @@
 # React Native Sample Projects
-These samples illustrate the use of [React Native](https://facebook.github.io/react-native/) to build mobile apps with React.
+These samples illustrate the use of [React Native](https://facebook.github.io/react-native/) to build mobile apps with React Native and Redux.
 
 ## Pre-requisites
 
