@@ -12,7 +12,7 @@ const App = (() =>
       // Providers support one single child component. However, this child can
       // have as many subcomponents as needed.
     }
-    <View>
+    <View style={{ flex: 1 }}>
       <Header headerText="Tech Stack" />
       <LibraryList />
     </View>
