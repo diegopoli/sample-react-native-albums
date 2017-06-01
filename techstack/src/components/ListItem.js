@@ -1,16 +1,38 @@
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback, View } from 'react-native';
+import {
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  LayoutAnimation,
+  UIManager
+} from 'react-native';
 import { connect } from 'react-redux';
 import { CardSection } from './common';
 import * as actions from '../actions';
 
 class ListItem extends Component {
-  renderDescription() {
-    const { library, selectedLibraryId } = this.props;
 
-    if (library.id === selectedLibraryId) {
+  // This lifecycle method is called whenever the component is about to
+  // rerender to the device.
+  componentWillUpdate() {
+    // Note that in order to get this to work on Android you need to set
+    // the following flags via UIManager.
+    if (UIManager.setLayoutAnimationEnabledExperimental) {
+      UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
+    LayoutAnimation.spring();
+  }
+
+  renderDescription() {
+    const { library, expanded } = this.props;
+
+    if (expanded) {
       return (
-        <Text>{library.description}</Text>
+        <CardSection>
+          <Text style={{ flex: 1 }}>
+            {library.description}
+          </Text>
+        </CardSection>
       );
     }
   }
@@ -43,8 +65,11 @@ const styles = {
   }
 };
 
-const mapStateToProps = state => {
-  return { selectedLibraryId: state.selectedLibraryId };
+const mapStateToProps = (state, ownProps) => {
+  const expanded = state.selectedLibraryId === ownProps.library.id;
+  // As both key and value are identical, it's possible to omit the key.
+  //return { expanded: expanded };
+  return { expanded };
 };
 
 // The first argument is a listener for mapStateToProps, but it is not
