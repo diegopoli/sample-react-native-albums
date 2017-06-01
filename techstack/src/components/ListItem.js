@@ -5,6 +5,16 @@ import { CardSection } from './common';
 import * as actions from '../actions';
 
 class ListItem extends Component {
+  renderDescription() {
+    const { library, selectedLibraryId } = this.props;
+
+    if (library.id === selectedLibraryId) {
+      return (
+        <Text>{library.description}</Text>
+      );
+    }
+  }
+
   render() {
     const { titleStyle } = styles;
     const { id, title } = this.props.library;
@@ -19,6 +29,7 @@ class ListItem extends Component {
               {title}
             </Text>
           </CardSection>
+          {this.renderDescription()}
         </View>
       </TouchableWithoutFeedback>
     );
@@ -32,6 +43,10 @@ const styles = {
   }
 };
 
+const mapStateToProps = state => {
+  return { selectedLibraryId: state.selectedLibraryId };
+};
+
 // The first argument is a listener for mapStateToProps, but it is not
-// required, so we pass 'null'.
-export default connect(null, actions)(ListItem);
+// required, so we can pass 'null' if we like.
+export default connect(mapStateToProps, actions)(ListItem);
